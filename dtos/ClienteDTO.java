@@ -1,68 +1,93 @@
 package com.closetDigit.dtos;
 
+import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ClienteDTO {
-	
-	 private Long idCliente;
-	    private String nombre;
-	    private String apellido;
-	    private String email;
-	    private String telefono;
-	    private String direccion;
-	   
-	    // Getters y Setters
 
-	    public Long getIdCliente() {
-	        return idCliente;
-	    }
+    @JsonProperty("id_usuario")
+    private Long idUsuario;
 
-	    public void setIdCliente(Long idCliente) {
-	        this.idCliente = idCliente;
-	    }
+    private String nombre;
+    private String correo;
+    private String password;
 
-	    public String getNombre() {
-	        return nombre;
-	    }
+    @JsonProperty("fecha_registro")
+    private LocalDate fechaRegistro;
 
-	    public void setNombre(String nombre) {
-	        this.nombre = nombre;
-	    }
+    private Boolean estado;
 
-	    public String getApellido() {
-	        return apellido;
-	    }
+    public ClienteDTO() {}
 
-	    public void setApellido(String apellido) {
-	        this.apellido = apellido;
-	    }
+    public ClienteDTO(Long idUsuario, String nombre, String correo, String password, LocalDate fechaRegistro, Boolean estado) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.password = password;
+        this.fechaRegistro = fechaRegistro;
+        this.estado = estado;
+    }
 
-	    public String getEmail() {
-	        return email;
-	    }
+    // Getters y Setters
 
-	    public void setEmail(String email) {
-	        this.email = email;
-	    }
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
 
-	    public String getTelefono() {
-	        return telefono;
-	    }
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-	    public void setTelefono(String telefono) {
-	        this.telefono = telefono;
-	    }
+    public String getNombre() {
+        return nombre;
+    }
 
-	    public String getDireccion() {
-	        return direccion;
-	    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	    public void setDireccion(String direccion) {
-	        this.direccion = direccion;
-	    }
+    public String getCorreo() {
+        return correo;
+    }
 
-	    
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
-	  
-	}
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public LocalDate getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(LocalDate fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "ClienteDTO{" +
+                "idUsuario=" + idUsuario +
+                ", nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", password='" + password + '\'' +
+                ", fechaRegistro=" + fechaRegistro +
+                ", estado=" + estado +
+                '}';
+    }
+}
 

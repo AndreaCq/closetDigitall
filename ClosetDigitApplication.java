@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 	
 	@SpringBootApplication
-	public class ClosetDigitAplication {
+	public class ClosetDigitApplication {
 
 		public static void main(String[] args) {
-			SpringApplication.run(ClosetDigitAplication.class, args);
+			SpringApplication.run(ClosetDigitApplication.class, args);
 		}
 	}
 
