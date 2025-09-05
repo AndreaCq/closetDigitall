@@ -1,129 +1,108 @@
 package com.closetDigit.entity;
 
-	
-	
-	import java.util.Date;
+import java.time.LocalDate;
+import javax.persistence.*;
 
-	import javax.persistence.Column;
-	import javax.persistence.Entity;
-	import javax.persistence.GeneratedValue;
-	import javax.persistence.GenerationType;
-	import javax.persistence.Id;
-	import javax.persistence.Table;
-	
+import org.hibernate.annotations.CreationTimestamp;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+@Entity
+@Table(name = "usuario")
+public class Cliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
+    @JsonProperty("id_usuario")  // Cambiado aquí
+    private Long idUsuario;
 
-		@Entity
-		@Table(name = "cliente")  // Especifica la tabla en la base de datos
-		public class Cliente {
+    @Column(name = "nombre", nullable = false, length = 100)
+    @JsonProperty("nombre")
+    private String nombre;
 
-		    @Id
-		    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Generación automática del ID con autoincremento
-		    @Column(name = "id_cliente")  // Mapear con la columna 'id_cliente'
-		    private Long idCliente;
+    @Column(name = "correo", nullable = false, unique = true, length = 100)
+    @JsonProperty("correo")
+    private String correo;
 
-		    @Column(name = "nombre", nullable = false, length = 100)  // 'nombre' no puede ser nulo y tiene longitud de 100
-		    private String nombre;
+    @Column(name = "password", nullable = false, length = 255)
+    @JsonProperty("password")
+    private String password;
 
-		    @Column(name = "apellido", nullable = false, length = 100)  // 'apellido' no puede ser nulo y tiene longitud de 100
-		    private String apellido;
+    @Column(name = "fecha_registro", updatable = false)
+    @CreationTimestamp
+    @JsonProperty("fecha_registro")  // Cambiado aquí
+    private LocalDate fechaRegistro;
 
-		    @Column(name = "email", nullable = false, unique = true, length = 100)  // 'email' es único y no nulo
-		    private String email;
+    @Column(name = "estado")
+    @JsonProperty("estado")
+    private Boolean estado = true;
 
-		    @Column(name = "telefono", nullable = false, length = 20)  // 'telefono' no puede ser nulo y tiene longitud de 20
-		    private String telefono;
+    public Cliente() {}
 
-		    @Column(name = "direccion", nullable = false, length = 255)  // 'direccion' no puede ser nula y tiene longitud de 255
-		    private String direccion;
+    public Cliente(String nombre, String correo, String password, Boolean estado) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.password = password;
+        if (estado != null) {
+            this.estado = estado;
+        }
+    }
 
-		    
+    // Getters y Setters
 
-			
-		// Constructor vacío requerido por JPA
-	    public Cliente() {}
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
 
-	    // Constructor con todos los campos
-	    public Cliente(Long idCliente, String nombre, String apellido, String email, String telefono, String direccion, Date fechaRegistro) {
-	        this.idCliente = idCliente;
-	        this.nombre = nombre;
-	        this.apellido = apellido;
-	        this.email = email;
-	        this.telefono = telefono;
-	        this.direccion = direccion;
-	        
-	    }
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-	    // Getters y Setters
-	    public Long getIdCliente() {
-	        return idCliente;
-	    }
+    public String getNombre() {
+        return nombre;
+    }
 
-	    public void setIdCliente(Long idCliente) {
-	        this.idCliente = idCliente;
-	    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	    public String getNombre() {
-	        return nombre;
-	    }
+    public String getCorreo() {
+        return correo;
+    }
 
-	    public void setNombre(String nombre) {
-	        this.nombre = nombre;
-	    }
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
-	    public String getApellido() {
-	        return apellido;
-	    }
+    public String getPassword() {
+        return password;
+    }
 
-	    public void setApellido(String apellido) {
-	        this.apellido = apellido;
-	    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	    public String getEmail() {
-	        return email;
-	    }
+    public LocalDate getFechaRegistro() {
+        return fechaRegistro;
+    }
 
-	    public void setEmail(String email) {
-	        this.email = email;
-	    }
+    public Boolean getEstado() {
+        return estado;
+    }
 
-	    public String getTelefono() {
-	        return telefono;
-	    }
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
 
-	    public void setTelefono(String telefono) {
-	        this.telefono = telefono;
-	    }
-
-	    public String getDireccion() {
-	        return direccion;
-	    }
-
-	    public void setDireccion(String direccion) {
-	        this.direccion = direccion;
-	    }
-
-	    
-
-	    // Método toString (opcional, útil para depuración)
-	    @Override
-	    public String toString() {
-	        return "Cliente{" +
-	                "idCliente=" + idCliente +
-	                ", nombre='" + nombre + '\'' +
-	                ", apellido='" + apellido + '\'' +
-	                ", email='" + email + '\'' +
-	                ", telefono='" + telefono + '\'' +
-	                ", direccion='" + direccion + '\'' +
-	                
-	                '}';
-	    }
-
-		
-		}
-
-		
-
-
-
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "idUsuario=" + idUsuario +
+                ", nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", password='" + password + '\'' +
+                ", fechaRegistro=" + fechaRegistro +
+                ", estado=" + estado +
+                '}';
+    }
+}

@@ -17,7 +17,11 @@ import com.closetDigit.servic.ClienteService;
 
 import lombok.RequiredArgsConstructor;
 
+<<<<<<< HEAD
 //servicios 
+=======
+//servicios del cliente
+>>>>>>> nuevaRama
 
 @Service
 @RequiredArgsConstructor
@@ -154,6 +158,6 @@ public class ClienteServiceImpl implements ClienteService {
 	
 
 
-    // Otros métodos aún pueden quedar vacíos si no los usas
+    //
 }
 	

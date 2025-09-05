@@ -18,6 +18,7 @@ public interface ClienteMappers {
     @InheritInverseConfiguration
     Cliente dtoToEntity(ClienteDTO clienteDTO);
 }
+<<<<<<< HEAD
 /*@Mapper (componentModel = "spring")
 public interface ClienteMappers {
 
@@ -28,3 +29,7 @@ public interface ClienteMappers {
     @InheritInverseConfiguration
     Cliente dtoToEntity(ClienteDTO clienteDTO);
 }*/
+=======
+
+
+>>>>>>> nuevaRama
