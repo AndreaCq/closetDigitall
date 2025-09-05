@@ -9,3 +9,5 @@ import com.closetDigit.entity.Cliente;
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
 }
+
+//repo clientes
