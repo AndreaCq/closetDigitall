@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import com.closetDigit.dtos.ClienteDTO;
 import com.closetDigit.dtos.ResponseDTO;
 
-
+//interfaces 
 
 public interface ClienteService {
 	

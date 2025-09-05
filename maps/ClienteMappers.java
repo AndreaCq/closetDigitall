@@ -18,3 +18,13 @@ public interface ClienteMappers {
     @InheritInverseConfiguration
     Cliente dtoToEntity(ClienteDTO clienteDTO);
 }
+/*@Mapper (componentModel = "spring")
+public interface ClienteMappers {
+
+	ClienteMappers INSTANCE = Mappers.getMapper(ClienteMappers.class);
+
+    ClienteDTO entityToDto(Cliente cliente);
+
+    @InheritInverseConfiguration
+    Cliente dtoToEntity(ClienteDTO clienteDTO);
+}*/
